@@ -1,0 +1,80 @@
+{
+  "name": "@gg-utils/testing-identities-kit",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Reusable testing-identities workflow UI helpers and terminal shells.",
+  "license": "UNLICENSED",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./contracts": {
+      "types": "./src/contracts.ts",
+      "default": "./src/contracts.ts"
+    },
+    "./build-argv": {
+      "types": "./src/build-argv.ts",
+      "default": "./src/build-argv.ts"
+    },
+    "./form-to-argv": {
+      "types": "./src/form-to-argv.ts",
+      "default": "./src/form-to-argv.ts"
+    },
+    "./format-preview": {
+      "types": "./src/format-preview.ts",
+      "default": "./src/format-preview.ts"
+    },
+    "./opentui-app": {
+      "types": "./src/opentui-app.tsx",
+      "default": "./src/opentui-app.tsx"
+    },
+    "./parse-stdout-json": {
+      "types": "./src/parse-stdout-json.ts",
+      "default": "./src/parse-stdout-json.ts"
+    },
+    "./spawn-npx-tsx": {
+      "types": "./src/spawn-npx-tsx.ts",
+      "default": "./src/spawn-npx-tsx.ts"
+    },
+    "./workflows": {
+      "types": "./src/workflows.ts",
+      "default": "./src/workflows.ts"
+    },
+    "./package.json": "./package.json",
+    "./ink-app": {
+      "types": "./src/ink-app.tsx",
+      "default": "./src/ink-app.tsx"
+    },
+    "./ink-task": {
+      "types": "./src/ink-task.ts",
+      "default": "./src/ink-task.ts"
+    },
+    "./interactive-menu": {
+      "types": "./src/interactive-menu.ts",
+      "default": "./src/interactive-menu.ts"
+    }
+  },
+  "files": [
+    "dist/",
+    "src/",
+    "!src/**/*.unit.test.ts",
+    "README.md",
+    "tsconfig.json",
+    "tsconfig.build.json"
+  ],
+  "engines": {
+    "node": ">=24.11.1 <25",
+    "npm": ">=9.0.0"
+  },
+  "packageManager": "npm@11.12.1",
+  "scripts": {
+    "build": "node ../../node_modules/typescript/bin/tsc -p tsconfig.build.json",
+    "type-check": "node ../../node_modules/typescript/bin/tsc --noEmit -p tsconfig.json",
+    "test": "node ../../node_modules/tsx/dist/cli.mjs --test \"src/**/*.unit.test.ts\" \"src/**/*.unit.test.tsx\""
+  }
+}
