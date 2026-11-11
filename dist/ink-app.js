@@ -11,7 +11,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
  * @see packages/testing-identities-kit/src/ink-task.ts - Streams child-process output into Ink.
  * @documentation reviewed=2026-05-21 standard=FILE_OVERVIEW_STANDARDS_TYPESCRIPT@3
  */
-import { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { Box, Text, useApp, useInput } from "ink";
 import { TestingIdentitiesKit_buildArgv, TestingIdentitiesKit_buildArgvRedactedForDisplay, TestingIdentitiesKit_scriptAbsolutePath, } from "./build-argv.js";
 import { TestingIdentitiesKit_formFieldsToArgvInput, TestingIdentitiesKit_validateEmailWorkflow, } from "./form-to-argv.js";
@@ -454,7 +454,7 @@ function testingIdentitiesInk_finalizeSessionTask(options) {
  * Renders the workflow picker list with the active item highlighted.
  */
 function TestingIdentitiesInkWorkflowPanel(props) {
-    return (_jsxs(Box, { flexDirection: "column", children: [_jsx(Text, { bold: true, children: "Workflow" }), props.workflows.map((w, index) => (_jsxs(Text, { color: index === props.workflowIndex ? "cyan" : undefined, children: [index === props.workflowIndex ? "> " : "  ", w.label] }, w.id)))] }));
+    return (_jsxs(Box, { flexDirection: "column", children: [_jsx(Text, { bold: true, children: "Workflow" }), props.workflows.map((w, index) => (_jsxs(Text, { ...(index === props.workflowIndex ? { color: "cyan" } : {}), children: [index === props.workflowIndex ? "> " : "  ", w.label] }, w.id)))] }));
 }
 /**
  * Renders allocate workflow fields when the active workflow id is `allocate`.
@@ -463,7 +463,7 @@ function testingIdentitiesInkFormPanel_allocateSection(props) {
     if (props.workflowId !== "allocate") {
         return null;
     }
-    return (_jsxs(Box, { flexDirection: "column", children: [_jsxs(Text, { color: props.formSlot === 0 ? "cyan" : undefined, children: ["Purpose [--purpose]: ", props.allocatePurpose || "(empty)"] }), _jsxs(Text, { color: props.formSlot === 1 ? "cyan" : undefined, children: ["Run id [--run-id]: ", props.allocateRunId || "(empty)"] })] }));
+    return (_jsxs(Box, { flexDirection: "column", children: [_jsxs(Text, { ...(props.formSlot === 0 ? { color: "cyan" } : {}), children: ["Purpose [--purpose]: ", props.allocatePurpose || "(empty)"] }), _jsxs(Text, { ...(props.formSlot === 1 ? { color: "cyan" } : {}), children: ["Run id [--run-id]: ", props.allocateRunId || "(empty)"] })] }));
 }
 /**
  * Renders ensure-auth workflow fields when the active workflow id is `ensureAuth`.
@@ -472,7 +472,7 @@ function testingIdentitiesInkFormPanel_ensureAuthSection(props) {
     if (props.workflowId !== "ensureAuth") {
         return null;
     }
-    return (_jsxs(Box, { flexDirection: "column", children: [_jsxs(Text, { color: props.formSlot === 0 ? "cyan" : undefined, children: ["Email [--email]: ", props.ensureEmail || "(required)"] }), _jsxs(Text, { color: props.formSlot === 1 ? "cyan" : undefined, children: ["Password: ", "*".repeat(props.ensurePassword.length)] }), _jsxs(Text, { color: props.formSlot === 2 ? "cyan" : undefined, children: ["User name: ", props.ensureUserName || "(empty)"] }), _jsxs(Text, { color: props.formSlot === 3 ? "cyan" : undefined, children: ["Website URL: ", props.ensureWebsiteUrl || "(empty)"] }), _jsxs(Text, { color: props.formSlot === 4 ? "cyan" : undefined, children: ["Allow real email: ", props.ensureAllowReal ? "yes" : "no", " (Space)"] })] }));
+    return (_jsxs(Box, { flexDirection: "column", children: [_jsxs(Text, { ...(props.formSlot === 0 ? { color: "cyan" } : {}), children: ["Email [--email]: ", props.ensureEmail || "(required)"] }), _jsxs(Text, { ...(props.formSlot === 1 ? { color: "cyan" } : {}), children: ["Password: ", "*".repeat(props.ensurePassword.length)] }), _jsxs(Text, { ...(props.formSlot === 2 ? { color: "cyan" } : {}), children: ["User name: ", props.ensureUserName || "(empty)"] }), _jsxs(Text, { ...(props.formSlot === 3 ? { color: "cyan" } : {}), children: ["Website URL: ", props.ensureWebsiteUrl || "(empty)"] }), _jsxs(Text, { ...(props.formSlot === 4 ? { color: "cyan" } : {}), children: ["Allow real email: ", props.ensureAllowReal ? "yes" : "no", " (Space)"] })] }));
 }
 /**
  * Renders ensure-applicant workflow fields when the active workflow id is `ensureApplicant`.
@@ -481,7 +481,7 @@ function testingIdentitiesInkFormPanel_ensureApplicantSection(props) {
     if (props.workflowId !== "ensureApplicant") {
         return null;
     }
-    return (_jsxs(Box, { flexDirection: "column", children: [_jsxs(Text, { color: props.formSlot === 0 ? "cyan" : undefined, children: ["Email [--email]: ", props.ensureEmail || "(required)"] }), _jsxs(Text, { color: props.formSlot === 1 ? "cyan" : undefined, children: ["Actor token: ", "*".repeat(props.applicantActorToken.length)] }), _jsxs(Text, { color: props.formSlot === 2 ? "cyan" : undefined, children: ["Source: ", props.applicantSource || "(empty)"] }), _jsxs(Text, { color: props.formSlot === 3 ? "cyan" : undefined, children: ["API URL: ", props.applicantApiUrl || "(empty)"] }), _jsxs(Text, { color: props.formSlot === 4 ? "cyan" : undefined, children: ["Password: ", "*".repeat(props.applicantPassword.length)] }), _jsxs(Text, { color: props.formSlot === 5 ? "cyan" : undefined, children: ["User name: ", props.applicantUserName || "(empty)"] }), _jsxs(Text, { color: props.formSlot === 6 ? "cyan" : undefined, children: ["Allow real email: ", props.applicantAllowReal ? "yes" : "no", " (Space)"] })] }));
+    return (_jsxs(Box, { flexDirection: "column", children: [_jsxs(Text, { ...(props.formSlot === 0 ? { color: "cyan" } : {}), children: ["Email [--email]: ", props.ensureEmail || "(required)"] }), _jsxs(Text, { ...(props.formSlot === 1 ? { color: "cyan" } : {}), children: ["Actor token: ", "*".repeat(props.applicantActorToken.length)] }), _jsxs(Text, { ...(props.formSlot === 2 ? { color: "cyan" } : {}), children: ["Source: ", props.applicantSource || "(empty)"] }), _jsxs(Text, { ...(props.formSlot === 3 ? { color: "cyan" } : {}), children: ["API URL: ", props.applicantApiUrl || "(empty)"] }), _jsxs(Text, { ...(props.formSlot === 4 ? { color: "cyan" } : {}), children: ["Password: ", "*".repeat(props.applicantPassword.length)] }), _jsxs(Text, { ...(props.formSlot === 5 ? { color: "cyan" } : {}), children: ["User name: ", props.applicantUserName || "(empty)"] }), _jsxs(Text, { ...(props.formSlot === 6 ? { color: "cyan" } : {}), children: ["Allow real email: ", props.applicantAllowReal ? "yes" : "no", " (Space)"] })] }));
 }
 /**
  * Renders fixture-hygiene workflow fields when the active workflow id is `fixtureHygiene`.
@@ -636,7 +636,7 @@ export function TestingIdentitiesKitInkApp({ config, }) {
             },
         });
         setRunCancel(() => task.cancel);
-        task.promise.then((result) => {
+        void task.promise.then((result) => {
             testingIdentitiesInk_finalizeSessionTask({
                 result,
                 argvWorkflow: argvInput.workflow,

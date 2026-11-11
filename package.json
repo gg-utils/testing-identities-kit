@@ -1,80 +1,98 @@
 {
   "name": "@gg-utils/testing-identities-kit",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.2.0",
   "description": "Reusable testing-identities workflow UI helpers and terminal shells.",
   "license": "MIT",
   "type": "module",
   "sideEffects": false,
-  "main": "./src/index.ts",
-  "types": "./src/index.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./src/index.ts",
-      "default": "./src/index.ts"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
     },
     "./contracts": {
-      "types": "./src/contracts.ts",
-      "default": "./src/contracts.ts"
+      "types": "./dist/contracts.d.ts",
+      "default": "./dist/contracts.js"
     },
     "./build-argv": {
-      "types": "./src/build-argv.ts",
-      "default": "./src/build-argv.ts"
+      "types": "./dist/build-argv.d.ts",
+      "default": "./dist/build-argv.js"
     },
     "./form-to-argv": {
-      "types": "./src/form-to-argv.ts",
-      "default": "./src/form-to-argv.ts"
+      "types": "./dist/form-to-argv.d.ts",
+      "default": "./dist/form-to-argv.js"
     },
     "./format-preview": {
-      "types": "./src/format-preview.ts",
-      "default": "./src/format-preview.ts"
+      "types": "./dist/format-preview.d.ts",
+      "default": "./dist/format-preview.js"
     },
     "./opentui-app": {
-      "types": "./src/opentui-app.tsx",
-      "default": "./src/opentui-app.tsx"
+      "types": "./dist/opentui-app.d.ts",
+      "default": "./dist/opentui-app.js"
     },
     "./parse-stdout-json": {
-      "types": "./src/parse-stdout-json.ts",
-      "default": "./src/parse-stdout-json.ts"
+      "types": "./dist/parse-stdout-json.d.ts",
+      "default": "./dist/parse-stdout-json.js"
     },
     "./spawn-npx-tsx": {
-      "types": "./src/spawn-npx-tsx.ts",
-      "default": "./src/spawn-npx-tsx.ts"
+      "types": "./dist/spawn-npx-tsx.d.ts",
+      "default": "./dist/spawn-npx-tsx.js"
     },
     "./workflows": {
-      "types": "./src/workflows.ts",
-      "default": "./src/workflows.ts"
+      "types": "./dist/workflows.d.ts",
+      "default": "./dist/workflows.js"
     },
     "./package.json": "./package.json",
     "./ink-app": {
-      "types": "./src/ink-app.tsx",
-      "default": "./src/ink-app.tsx"
+      "types": "./dist/ink-app.d.ts",
+      "default": "./dist/ink-app.js"
     },
     "./ink-task": {
-      "types": "./src/ink-task.ts",
-      "default": "./src/ink-task.ts"
+      "types": "./dist/ink-task.d.ts",
+      "default": "./dist/ink-task.js"
     },
     "./interactive-menu": {
-      "types": "./src/interactive-menu.ts",
-      "default": "./src/interactive-menu.ts"
+      "types": "./dist/interactive-menu.d.ts",
+      "default": "./dist/interactive-menu.js"
+    },
+    "./opentui-runtime/jsx-runtime": {
+      "types": "./dist/opentui-runtime/jsx-runtime.d.ts",
+      "default": "./dist/opentui-runtime/jsx-runtime.js"
     }
   },
   "files": [
     "dist/",
-    "src/",
-    "!src/**/*.unit.test.ts",
     "README.md",
-    "tsconfig.json",
-    "tsconfig.build.json"
+    "LICENSE"
   ],
   "engines": {
-    "node": ">=24.11.1 <25",
-    "npm": ">=9.0.0"
+    "node": ">=22.0.0 <27"
   },
   "packageManager": "npm@11.12.1",
   "scripts": {
-    "build": "node ../../node_modules/typescript/bin/tsc -p tsconfig.build.json",
-    "type-check": "node ../../node_modules/typescript/bin/tsc --noEmit -p tsconfig.json",
-    "test": "node ../../node_modules/tsx/dist/cli.mjs --test \"src/**/*.unit.test.ts\" \"src/**/*.unit.test.tsx\""
+    "build": "node scripts/clean-dist.mjs && tsc -p tsconfig.build.json",
+    "type-check": "tsc --noEmit -p tsconfig.json",
+    "test": "tsx --test src/*.unit.test.ts src/*.unit.test.tsx",
+    "lint": "eslint src --max-warnings 0",
+    "check:dist": "npm run build && git diff --exit-code -- dist && node scripts/check-dist-untracked.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gg-utils/testing-identities-kit.git"
+  },
+  "dependencies": {
+    "ink": "6.8.0",
+    "react": "19.3.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.39.4",
+    "@types/node": "22.20.5",
+    "@types/react": "19.3.0",
+    "eslint": "9.39.4",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.72.2"
   }
 }

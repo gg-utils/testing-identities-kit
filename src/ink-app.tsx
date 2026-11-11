@@ -761,7 +761,7 @@ function TestingIdentitiesInkWorkflowPanel(props: {
       {props.workflows.map((w, index) => (
         <Text
           key={w.id}
-          color={index === props.workflowIndex ? "cyan" : undefined}
+          {...(index === props.workflowIndex ? { color: "cyan" } : {})}
         >
           {index === props.workflowIndex ? "> " : "  "}
           {w.label}
@@ -805,10 +805,10 @@ function testingIdentitiesInkFormPanel_allocateSection(
   }
   return (
     <Box flexDirection="column">
-      <Text color={props.formSlot === 0 ? "cyan" : undefined}>
+      <Text {...(props.formSlot === 0 ? { color: "cyan" } : {})}>
         Purpose [--purpose]: {props.allocatePurpose || "(empty)"}
       </Text>
-      <Text color={props.formSlot === 1 ? "cyan" : undefined}>
+      <Text {...(props.formSlot === 1 ? { color: "cyan" } : {})}>
         Run id [--run-id]: {props.allocateRunId || "(empty)"}
       </Text>
     </Box>
@@ -826,19 +826,19 @@ function testingIdentitiesInkFormPanel_ensureAuthSection(
   }
   return (
     <Box flexDirection="column">
-      <Text color={props.formSlot === 0 ? "cyan" : undefined}>
+      <Text {...(props.formSlot === 0 ? { color: "cyan" } : {})}>
         Email [--email]: {props.ensureEmail || "(required)"}
       </Text>
-      <Text color={props.formSlot === 1 ? "cyan" : undefined}>
+      <Text {...(props.formSlot === 1 ? { color: "cyan" } : {})}>
         Password: {"*".repeat(props.ensurePassword.length)}
       </Text>
-      <Text color={props.formSlot === 2 ? "cyan" : undefined}>
+      <Text {...(props.formSlot === 2 ? { color: "cyan" } : {})}>
         User name: {props.ensureUserName || "(empty)"}
       </Text>
-      <Text color={props.formSlot === 3 ? "cyan" : undefined}>
+      <Text {...(props.formSlot === 3 ? { color: "cyan" } : {})}>
         Website URL: {props.ensureWebsiteUrl || "(empty)"}
       </Text>
-      <Text color={props.formSlot === 4 ? "cyan" : undefined}>
+      <Text {...(props.formSlot === 4 ? { color: "cyan" } : {})}>
         Allow real email: {props.ensureAllowReal ? "yes" : "no"} (Space)
       </Text>
     </Box>
@@ -856,25 +856,25 @@ function testingIdentitiesInkFormPanel_ensureApplicantSection(
   }
   return (
     <Box flexDirection="column">
-      <Text color={props.formSlot === 0 ? "cyan" : undefined}>
+      <Text {...(props.formSlot === 0 ? { color: "cyan" } : {})}>
         Email [--email]: {props.ensureEmail || "(required)"}
       </Text>
-      <Text color={props.formSlot === 1 ? "cyan" : undefined}>
+      <Text {...(props.formSlot === 1 ? { color: "cyan" } : {})}>
         Actor token: {"*".repeat(props.applicantActorToken.length)}
       </Text>
-      <Text color={props.formSlot === 2 ? "cyan" : undefined}>
+      <Text {...(props.formSlot === 2 ? { color: "cyan" } : {})}>
         Source: {props.applicantSource || "(empty)"}
       </Text>
-      <Text color={props.formSlot === 3 ? "cyan" : undefined}>
+      <Text {...(props.formSlot === 3 ? { color: "cyan" } : {})}>
         API URL: {props.applicantApiUrl || "(empty)"}
       </Text>
-      <Text color={props.formSlot === 4 ? "cyan" : undefined}>
+      <Text {...(props.formSlot === 4 ? { color: "cyan" } : {})}>
         Password: {"*".repeat(props.applicantPassword.length)}
       </Text>
-      <Text color={props.formSlot === 5 ? "cyan" : undefined}>
+      <Text {...(props.formSlot === 5 ? { color: "cyan" } : {})}>
         User name: {props.applicantUserName || "(empty)"}
       </Text>
-      <Text color={props.formSlot === 6 ? "cyan" : undefined}>
+      <Text {...(props.formSlot === 6 ? { color: "cyan" } : {})}>
         Allow real email: {props.applicantAllowReal ? "yes" : "no"} (Space)
       </Text>
     </Box>
@@ -1161,7 +1161,7 @@ export function TestingIdentitiesKitInkApp({
 
     setRunCancel(() => task.cancel);
 
-    task.promise.then((result) => {
+    void task.promise.then((result) => {
       testingIdentitiesInk_finalizeSessionTask({
         result,
         argvWorkflow: argvInput.workflow,

@@ -105,3 +105,13 @@ Scripts currently expect the source-first workspace toolchain.
 - The kit does not define your test accounts or credentials.
 - Workflow definitions and command paths are adapter-owned.
 - Child-process helpers execute only when called by a consumer.
+
+## Use from another repository
+
+Add this dependency to your `package.json` and install normally; compiled ESM and declarations are included in the tag, with no consumer build step.
+
+```json
+"@gg-utils/testing-identities-kit": "git+https://github.com/gg-utils/testing-identities-kit.git#v0.2.0"
+```
+
+Requires Node `>=22.0.0 <27` (Node 22, 24, and 26).
