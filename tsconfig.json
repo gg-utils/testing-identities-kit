@@ -11,9 +11,25 @@
     "rootDir": ".",
     "noEmit": true,
     "isolatedModules": true,
-    "types": ["node"],
-    "jsx": "react-jsx"
+    "types": [
+      "node"
+    ],
+    "jsx": "react-jsx",
+    "exactOptionalPropertyTypes": true,
+    "noUncheckedIndexedAccess": true,
+    "verbatimModuleSyntax": true,
+    "paths": {
+      "@gg-utils/testing-identities-kit/opentui-runtime/jsx-runtime": [
+        "./src/opentui-runtime/jsx-runtime.ts"
+      ]
+    }
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
-  "exclude": ["dist", "node_modules"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules"
+  ]
 }

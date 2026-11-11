@@ -1,3 +1,4 @@
+/** @jsxImportSource @gg-utils/testing-identities-kit/opentui-runtime */
 /**
  * @fileoverview Renders the package-owned OpenTUI workflow panel, preview, and session panes.
  *

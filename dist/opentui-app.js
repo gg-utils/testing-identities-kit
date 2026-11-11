@@ -1,4 +1,5 @@
-import { jsx as _jsx, Fragment as _Fragment, jsxs as _jsxs } from "react/jsx-runtime";
+import { jsx as _jsx, Fragment as _Fragment, jsxs as _jsxs } from "@gg-utils/testing-identities-kit/opentui-runtime/jsx-runtime";
+/** @jsxImportSource @gg-utils/testing-identities-kit/opentui-runtime */
 /**
  * @fileoverview Renders the package-owned OpenTUI workflow panel, preview, and session panes.
  *

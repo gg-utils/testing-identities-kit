@@ -1,1 +1,1 @@
-{"version":3,"file":"ink-app.d.ts","sourceRoot":"","sources":["../src/ink-app.tsx"],"names":[],"mappings":"AAqBA,OAAO,KAAK,EACV,6BAA6B,EAG9B,MAAM,gBAAgB,CAAC;AAm9BxB;;;;;GAKG;AACH,wBAAgB,0BAA0B,CAAC,EACzC,MAAM,GACP,EAAE;IACD,MAAM,EAAE,6BAA6B,CAAC;CACvC,2CAoTA"}
+{"version":3,"file":"ink-app.d.ts","sourceRoot":"","sources":["../src/ink-app.tsx"],"names":[],"mappings":"AAAA;;;;;;;;;;;GAWG;AACH,OAAO,KAAoD,MAAM,OAAO,CAAC;AASzE,OAAO,KAAK,EACV,6BAA6B,EAG9B,MAAM,gBAAgB,CAAC;AAm9BxB;;;;;GAKG;AACH,wBAAgB,0BAA0B,CAAC,EACzC,MAAM,GACP,EAAE;IACD,MAAM,EAAE,6BAA6B,CAAC;CACvC,qBAoTA"}

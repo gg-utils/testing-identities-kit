@@ -7,5 +7,5 @@ import type { TestingIdentitiesKit_UiConfig } from "./contracts.js";
  */
 export declare function TestingIdentitiesKitOpenTuiApp(props: {
     config: TestingIdentitiesKit_UiConfig;
-}): import("react/jsx-runtime").JSX.Element;
+}): import("react").JSX.Element;
 //# sourceMappingURL=opentui-app.d.ts.map

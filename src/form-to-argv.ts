@@ -1,3 +1,4 @@
+import { omitUndefined } from "./omit-undefined.js";
 /**
  * @fileoverview Maps aggregated testing-identities UI form fields into the discriminated argv
  * builder input union consumed by {@link TestingIdentitiesKit_buildArgv}.
@@ -63,22 +64,22 @@ export function TestingIdentitiesKit_formFieldsToArgvInput(options: {
   const formFields = options.fields;
   switch (options.workflowId) {
     case "allocate":
-      return {
+      return omitUndefined({
         workflow: "allocate",
         purpose: formFields.allocatePurpose.trim() || undefined,
         runId: formFields.allocateRunId.trim() || undefined,
-      };
+      });
     case "ensureAuth":
-      return {
+      return omitUndefined({
         workflow: "ensureAuth",
         email: formFields.ensureEmail.trim(),
         password: formFields.ensurePassword.trim() || undefined,
         userName: formFields.ensureUserName.trim() || undefined,
         websiteUrl: formFields.ensureWebsiteUrl.trim() || undefined,
         allowRealEmail: formFields.ensureAllowReal,
-      };
+      });
     case "ensureApplicant":
-      return {
+      return omitUndefined({
         workflow: "ensureApplicant",
         email: formFields.ensureEmail.trim(),
         actorUserToken: formFields.applicantActorToken.trim() || undefined,
@@ -87,12 +88,12 @@ export function TestingIdentitiesKit_formFieldsToArgvInput(options: {
         password: formFields.applicantPassword.trim() || undefined,
         userName: formFields.applicantUserName.trim() || undefined,
         allowRealEmail: formFields.applicantAllowReal,
-      };
+      });
     case "fixtureHygiene":
-      return {
+      return omitUndefined({
         workflow: "fixtureHygiene",
         strict: formFields.fixtureStrict,
-      };
+      });
   }
 }
 
